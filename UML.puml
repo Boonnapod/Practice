@@ -1,0 +1,55 @@
+@startuml
+class logic.Station {
+- String name
+- int number
++ String getName()
++ void setName(String)
++ int getNumber()
++ void setNumber(int)
+}
+
+
+class application.CPTSMachine {
+- {static} ArrayList<Station> stationlist
+- {static} ArrayList<Ticket> ticketlist
+- {static} int totalStationNumber
+- {static} boolean isEnd
+- {static} Scanner kb
++ {static} void main(String[])
++ {static} void initializeData()
++ {static} boolean addStation(String)
++ {static} boolean isStationExisted(String)
++ {static} boolean buyTicket(int,Station,Station)
++ {static} void showAllStation()
++ {static} void handleAddStation()
++ {static} void showAllBoughtTicket()
++ {static} void handleBuyTicket()
++ {static} ArrayList<Station> getStationlist()
++ {static} ArrayList<Ticket> getTicketlist()
++ {static} int getTotalStationNumber()
++ {static} void setTotalStationNumber(int)
+}
+
+
+class logic.Ticket {
+- int type
+- int priceperstation
+- Station start
+- Station end
++ int getType()
++ int getPricePerStation()
++ Station getStart()
++ Station getEnd()
++ void setType(int)
++ void setStation(Station,Station)
++ double calculatePrice()
++ void setPriceperstation(int)
++ void setStart(Station)
++ void setEnd(Station)
++ String getDescription()
++ boolean isStationValid(Station,Station)
++ int getStationDistance(Station,Station)
+}
+
+
+@enduml
